@@ -41,7 +41,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+            emailjs.init("Z5kSqEasWUB9pDi8H"); // Replace with your EmailJS public key
         })();
     </script>
 
@@ -1122,6 +1122,26 @@
     <!-- Your existing content -->
 </body>
 
+<script type="text/javascript">
+    window.onload = function() {
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_8sdkmrq', 'template_eh3rqa3', this) // Replace with your EmailJS service ID and template ID
+                .then(() => {
+                    console.log('SUCCESS!');
+                    document.querySelector('.sent-message').style.display = 'block';
+                    document.querySelector('.error-message').style.display = 'none';
+                }, (error) => {
+                    console.log('FAILED...', error);
+                    document.querySelector('.error-message').style.display = 'block';
+                    document.querySelector('.sent-message').style.display = 'none';
+                });
+        });
+    }
+</script>
+
+
+          
 
           </div><!-- End Contact Form -->
 
