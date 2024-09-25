@@ -1077,70 +1077,47 @@
   <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
     <div class="row gy-4">
 
-      <!-- Name Field -->
       <div class="col-md-6">
         <input type="text" name="name" class="form-control" placeholder="Your Name" required>
       </div>
 
-      <!-- Email Field -->
       <div class="col-md-6">
         <input type="email" class="form-control" name="email" placeholder="Your Email" required>
       </div>
 
-      <!-- Subject Field -->
       <div class="col-12">
         <input type="text" class="form-control" name="subject" placeholder="Subject" required>
       </div>
 
-      <!-- Message Field -->
       <div class="col-12">
         <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
       </div>
 
-      <!-- Feedback Section: Loading, Success, and Error Messages -->
       <div class="col-12 text-center">
-        <div class="loading" style="display:none;">Loading...</div>
-        <div class="error-message" style="display:none; color: red;">There was an error sending your message. Please try again.</div>
-        <div class="sent-message" style="display:none; color: green;">Your message has been sent. Thank you!</div>
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your message has been sent. Thank you!</div>
 
-        <!-- Submit Button -->
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit">Send Message</button>
       </div>
 
     </div>
   </form>
 </div>
 
-<!-- Include EmailJS Script -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<!-- Form Submission Logic -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
-  // Initialize EmailJS with your public key
   (function() {
-    emailjs.init("Z5kSqEasWUB9pDi8H");  // Replace with your actual EmailJS public key
+    emailjs.init("Z5kSqEasWUB9pDi8H"); // Replace with your EmailJS user ID
   })();
 
-  // Handle form submission
   document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from reloading the page
-
-    // Show the loading animation
-    document.querySelector('.loading').style.display = 'block';
-    document.querySelector('.sent-message').style.display = 'none';
-    document.querySelector('.error-message').style.display = 'none';
-
-    // Send the form data via EmailJS
-    emailjs.sendForm('service_8sdkmrq', 'template_eh3rqa3', this)  // Replace with your EmailJS service ID and template ID
+    event.preventDefault();
+    emailjs.sendForm('service_8sdkmrq', 'template_eh3rqa3', this) // Replace with your EmailJS service ID and template ID
       .then(function() {
-        // Hide the loading animation and show the success message
-        document.querySelector('.loading').style.display = 'none';
         document.querySelector('.sent-message').style.display = 'block';
         document.querySelector('.error-message').style.display = 'none';
       }, function(error) {
-        // Hide the loading animation and show the error message
-        document.querySelector('.loading').style.display = 'none';
-        document.querySelector('.error-message').innerHTML = `Error: ${error.text}. Please try again.`;
         document.querySelector('.error-message').style.display = 'block';
         document.querySelector('.sent-message').style.display = 'none';
       });
