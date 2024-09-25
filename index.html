@@ -1072,57 +1072,43 @@
 
 <! Start Contact Form >
 
-<div class="col-lg-6">
-  <form id="contact-form" class="php-email-form" action="javascript:void(0);" data-aos="fade-up" data-aos-delay="200">
-    <div class="row gy-4">
+<body>
+    <!-- Your existing content -->
 
-      <div class="col-md-6">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-      </div>
+    <div class="col-lg-6">
+        <form id="contact-form" class="php-email-form" action="javascript:void(0);" data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4">
 
-      <div class="col-md-6">
-        <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-      </div>
+                <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
 
-      <div class="col-12">
-        <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-      </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
 
-      <div class="col-12">
-        <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-      </div>
+                <div class="col-12">
+                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                </div>
 
-      <div class="col-12 text-center">
-        <div class="loading">Loading</div>
-        <div class="error-message"></div>
-        <div class="sent-message">Your message has been sent. Thank you!</div>
+                <div class="col-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                </div>
 
-        <button type="submit">Send Message</button>
-      </div>
+                <div class="col-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
 
+                    <button type="submit">Send Message</button>
+                </div>
+
+            </div>
+        </form>
     </div>
-  </form>
-</div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init("Z5kSqEasWUB9pDi8H"); // Replace with your EmailJS user ID
-  })();
-
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    emailjs.sendForm('service_8sdkmrq', 'template_5kl4xyo', this) // Replace with your EmailJS service ID and template ID
-      .then(function() {
-        document.querySelector('.sent-message').style.display = 'block';
-        document.querySelector('.error-message').style.display = 'none';
-      }, function(error) {
-        document.querySelector('.error-message').style.display = 'block';
-        document.querySelector('.sent-message').style.display = 'none';
-      });
-  });
-</script>
-
+    <!-- Your existing content -->
+</body>
 
 
           </div><!-- End Contact Form -->
