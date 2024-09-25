@@ -1107,12 +1107,12 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
   (function() {
-    emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+    emailjs.init("Z5kSqEasWUB9pDi8H"); // Replace with your EmailJS user ID
   })();
 
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this) // Replace with your EmailJS service ID and template ID
+    emailjs.sendForm('service_8sdkmrq', 'template_5kl4xyo', this) // Replace with your EmailJS service ID and template ID
       .then(function() {
         document.querySelector('.sent-message').style.display = 'block';
         document.querySelector('.error-message').style.display = 'none';
