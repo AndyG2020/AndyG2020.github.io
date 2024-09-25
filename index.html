@@ -1074,7 +1074,7 @@
 <! Start Contact Form >
 
 <div class="col-lg-6">
-  <form id="contact-form" class="php-email-form">
+  <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
     <div class="row gy-4">
 
       <!-- Name Field -->
@@ -1097,7 +1097,7 @@
         <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
       </div>
 
-      <!-- Feedback Section -->
+      <!-- Feedback Section: Loading, Success, and Error Messages -->
       <div class="col-12 text-center">
         <div class="loading" style="display:none;">Loading...</div>
         <div class="error-message" style="display:none; color: red;">There was an error sending your message. Please try again.</div>
@@ -1123,34 +1123,30 @@
 
   // Handle form submission
   document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault(); // Prevent form from reloading the page
 
-    // Show loading indicator
+    // Show the loading animation
     document.querySelector('.loading').style.display = 'block';
     document.querySelector('.sent-message').style.display = 'none';
     document.querySelector('.error-message').style.display = 'none';
 
-    emailjs.sendForm('service_8sdkmrq', 'template_5kl4xyo', this)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);  // Log success response
-
-        // Hide loading and show success message
+    // Send the form data via EmailJS
+    emailjs.sendForm('service_8sdkmrq', 'template_eh3rqa3', this)  // Replace with your EmailJS service ID and template ID
+      .then(function() {
+        // Hide the loading animation and show the success message
         document.querySelector('.loading').style.display = 'none';
         document.querySelector('.sent-message').style.display = 'block';
         document.querySelector('.error-message').style.display = 'none';
       }, function(error) {
-        console.error('Failed to send email. Error details:', error);  // Log detailed error
-
-        // Hide loading and show error message
+        // Hide the loading animation and show the error message
         document.querySelector('.loading').style.display = 'none';
-        document.querySelector('.error-message').innerHTML = `Failed to send message. Please try again later. Error: ${error.text}`;
+        document.querySelector('.error-message').innerHTML = `Error: ${error.text}. Please try again.`;
         document.querySelector('.error-message').style.display = 'block';
         document.querySelector('.sent-message').style.display = 'none';
       });
   });
 </script>
 
-          
 
           </div><!-- End Contact Form -->
 
